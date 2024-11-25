@@ -16,7 +16,9 @@ while commande != 'exit':
         continue
     
     if commande == 'exit' :
-        isAlive = False
+        tmp = input ("en etes-vous sur ? (o)ui/(n)on")
+        if tmp == 'o' :
+            isAlive = False
         continue
     print(f"commande {commande} inconnue")
             
