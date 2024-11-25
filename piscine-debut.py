@@ -9,7 +9,14 @@ while commande != 'exit':
         b = input("quelle nage ? ")
         c = input("combien de longueur ? ")
         liste.append((a,b,c))
-   
+        continue
     if commande == 'liste':
         for elt in liste:
             print(f"Prénom {elt[0]}, nage {elt[1]}, longueur {elt[2]}")
+        continue
+    
+    if commande == 'exit' :
+        isAlive = False
+        continue
+    print(f"commande {commande} inconnue")
+            
