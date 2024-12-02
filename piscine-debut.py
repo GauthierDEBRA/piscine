@@ -1,4 +1,6 @@
 liste = [("Pierre","Dos",10),("Paul","Brasse",13),("Léa","Crawl",6), ("Léa","Brasse",8) ]
+listenageurs =[]
+listenages = []
 commande = ''
 
 def cmd_ajout(liste):
@@ -35,21 +37,21 @@ def cmd_nage(liste):
         if elt[1]== tmp:
             print(f" {elt[0]:11}|  {elt[2]}")
 
-def cmd_exit():
+def cmd_exit(liste):
     tmp = input("En êtes-vous sûr ? (o)ui/(n)on ")
     if tmp == 'o':
         return False
     else:
         return True
 
-def cmd_save (liste) : 
-     fichier = open('save.csv', 'w')
+def cmd_save (liste, filename) : 
+     fichier = open(filename, 'w')
      for elt in liste:
           fichier.write(elt[0]+','+elt[1]+','+str(elt[2])+"\n")
      fichier.close()
 
-def cmd_load (liste) :
-     fichier = open('save.csv', 'r')
+def cmd_load (liste, filename) :
+     fichier = open(filename, 'r')
      for line in fichier:
          line.strip()
          if line[-1] == '\n':
@@ -81,11 +83,11 @@ while isAlive:
         continue
     
     if commande == 'save' :
-        cmd_save(liste)
+        cmd_save(liste, 'save.csv')
         continue
 
     if commande == 'load' :
-        cmd_load(liste)
+        cmd_load(liste, 'save.csv')
         continue
 
     if commande == 'exit':
